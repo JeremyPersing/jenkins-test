@@ -1,5 +1,6 @@
 pipeline {
     agent {
+
         docker {
             image 'node:18-bullseye-slim' 
             args '-p 80:5000' 
@@ -13,7 +14,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'npm start'
+                sh 'node index.js'
                 echo 'Started server'
             }
         }
