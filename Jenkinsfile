@@ -23,9 +23,9 @@
 
 pipeline {
     agent {
-        docker {
+        any {
             image 'node:lts-bullseye-slim' 
-            args '-p 3000:3000' 
+            args '-p 80:5000' 
         }
     }
     stages {
