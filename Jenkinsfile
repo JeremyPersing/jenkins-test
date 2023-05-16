@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'node:lts-bullseye-slim' 
-            args '-p 80:5000' 
+            args '-p 5000:5000' 
         }
     }
     stages {
@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'npm start'
+                sh 'npm start & sleep 1 echo $! > .pidfile'
             }
         }
     }
