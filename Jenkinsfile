@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh "./jenkins/scripts/deploy.sh"
+                sh "npm start &" // add & to run in background
             }
         }
     }
