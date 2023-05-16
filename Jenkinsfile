@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'npm start & sleep 1 echo $! > .pidfile'
+                sh "./jenkins/scripts/deploy.sh"
             }
         }
     }
