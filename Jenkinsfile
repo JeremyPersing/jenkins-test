@@ -2,18 +2,18 @@ pipeline {
     agent {
         docker {
             image 'node:18-bullseye-slim' 
-            args '-p 80:5000' 
+            // args '-p 80:5000' 
         }
     }
-    // environment {
-    //     HOME = "."
-    // }
     stages {
         stage('Build') { 
             steps {
-                echo "Hello From Build"
-                // sh "npm -v"
-                // sh 'npm install' 
+               sh 'npm install'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'npm start'
             }
         }
     }
